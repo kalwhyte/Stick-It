@@ -25,7 +25,7 @@ const Login = ({ login }) => {
                     <img
                         className="sidebar-logo__img"
                         src={logo}
-                        alt="trello"
+                        alt="Stick-It"
                     />
                 </div>
                 {login ? (
@@ -39,8 +39,8 @@ const Login = ({ login }) => {
                     <img className="slideshow__img" src={bg} />
                 </div>
                 <div className="splash-text">
-                    <h1 className="splash-text__h1">Plan your tasks</h1>
-                    <p> Plan out your tasks and vacations using trello</p>
+                    <h1 className="splash-text__h1">What's The Plan?</h1>
+                    <p> Your next move can be organized with Stick-It</p>
                 </div>
             </div>
         </>

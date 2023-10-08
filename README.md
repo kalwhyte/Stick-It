@@ -38,7 +38,7 @@ Stick-It is made using Redis, React, SASS, and Django Rest Framework.
     + Install [Python](https://www.python.org/downloads/), [Yarn](https://classic.yarnpkg.com/en/docs/install/), [Redis](https://redis.io/download).
     + Clone the repo
 ```
-git clone https://github.com/kalwhytetick-It.git
+git clone https://github.com/kalwhyte/Stick-It.git
 cd Stick-It
 ```
 1. Install [pipenv](https://pypi.org/project/pipenv/), a python virtual environment manager. Install backend dependencies and run migrations to create database. Default database is SQLite.

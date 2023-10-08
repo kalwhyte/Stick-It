@@ -6,7 +6,7 @@ import globalContext from "../context/globalContext";
 import bg from "../static/img/404.jpg";
 
 const Error404 = () => {
-    useDocumentTitle("Error | Trello");
+    useDocumentTitle("Error | Stick-It");
     const { authUser } = useContext(globalContext);
 
     return (
@@ -14,7 +14,7 @@ const Error404 = () => {
             <img className="error-page__image" src={bg} />
             <div className="error-page__content">
                 <h1 className="error-page__title">
-                    You look a little lost there
+                    Yo! Did you miss your way?
                 </h1>
                 <h4 className="error-page__subtitle">
                     {!authUser ? (

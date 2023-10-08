@@ -5,21 +5,19 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import bgImage from "../static/img/bg1.jpg";
 
 const Landing = () => {
-    useDocumentTitle("Trello");
+    useDocumentTitle("Stick-It");
     return (
         <div className="landing-banner">
             <img className="landing-banner__image" src={bgImage} />
             <div className="landing-banner__content">
                 <h1 className="landing-banner__title">
-                    Trello lets you work more collaboratively and get more done
+                    Stick-It is your No.1 workspace for collaborations and Productivity...
                 </h1>
                 <h4 className="landing-banner__subtitle">
-                    Trello's boards, lists, and cards enable you to organize and
-                    prioritize your projects in a fun, flexible, and rewarding
-                    way.
+                    Stick-It workspace has all-in-one features and enable superSonic workflow with amazing UI experience.
                 </h4>
                 <Link to="/register" className="btn">
-                    Sign Up For Free
+                    Sign Up Here
                 </Link>
             </div>
         </div>

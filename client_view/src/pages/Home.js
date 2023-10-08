@@ -11,7 +11,7 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import { filterBoards } from "../static/js/board";
 
 const Home = () => {
-    useDocumentTitle("Boards | Trello");
+    useDocumentTitle("Boards | Stick-It");
     const [showAddBoardModal, setShowAddBoardModal] = useState(false);
     const [boardProject, setBoardProject] = useState(0); // If 0, we are making a personal board. Else, making board for project with given ID
     const [showTeamModal, setShowTeamModal] = useState(false);
@@ -77,7 +77,7 @@ const Home = () => {
 
                     <div className="home__section">
                         <p className="home__title">
-                            <i className="fal fa-user"></i> Personal Boards
+                            <i className="fal fa-user"></i> SingleUser Boards
                         </p>
                         <button
                             className="btn"
