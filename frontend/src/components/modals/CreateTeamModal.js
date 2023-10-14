@@ -55,12 +55,12 @@ const CreateTeamModal = ({ setShowModal, addProject }) => {
                 </p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <label htmlFor="title">Project Name</label>
+                    <label htmlFor="title">What will you call it?</label>
                     <input
                         name="title"
                         ref={register({ required: true })}
                         type="text"
-                        placeholder="The Boys"
+                        placeholder="Bash Script"
                         onBlur={animateFaces}
                     />
 
@@ -84,7 +84,7 @@ const CreateTeamModal = ({ setShowModal, addProject }) => {
                             Create Project
                         </button>
                     ) : (
-                        <button className="btn btn--disabled" disabled>
+                        <button className="btn btn--disabled" >
                             Create Project
                         </button>
                     )}

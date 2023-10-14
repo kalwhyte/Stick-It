@@ -38,8 +38,7 @@ const Home = () => {
                         <>
                             <div className="home__section">
                                 <p className="home__title">
-                                    <i className="fal fa-star"></i> Starred
-                                    Boards
+                                    <i className="fal fa-star"></i> My Starred Boards
                                 </p>
                             </div>
                             <div className="home__boards">
@@ -77,7 +76,7 @@ const Home = () => {
 
                     <div className="home__section">
                         <p className="home__title">
-                            <i className="fal fa-user"></i> Personal Boards
+                            <i className="fal fa-user"></i> My WorkSpace
                         </p>
                         <button
                             className="btn"

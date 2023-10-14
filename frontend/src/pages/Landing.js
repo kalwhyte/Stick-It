@@ -11,15 +11,13 @@ const Landing = () => {
             <img className="landing-banner__image" src={bgImage} />
             <div className="landing-banner__content">
                 <h1 className="landing-banner__title">
-                    Trello lets you work more collaboratively and get more done
+                    Stick-It isn't just functional; it's also designed for fun.
                 </h1>
                 <h4 className="landing-banner__subtitle">
-                    Trello's boards, lists, and cards enable you to organize and
-                    prioritize your projects in a fun, flexible, and rewarding
-                    way.
+                   Stick-It Boards, Lists, and Cards offer a dynamic and engaging platform for efficient project organization and prioritization 
                 </h4>
                 <Link to="/register" className="btn">
-                    Sign Up For Free
+                    Sign Up For Free Today
                 </Link>
             </div>
         </div>

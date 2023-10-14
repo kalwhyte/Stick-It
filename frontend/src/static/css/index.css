@@ -247,7 +247,7 @@ button, input, select, textarea, input::placeholder {
 }
 
 .btn--disabled:hover {
-  color: #7e91b2;
+  color: #5779b5;
   background-color: rgba(211, 211, 211, 0.55);
   opacity: 1;
 }
@@ -707,8 +707,8 @@ button, input, select, textarea, input::placeholder {
 }
 
 .card {
-  background: white;
-  border: 1px rgba(211, 211, 211, 0.55) solid;
+  background: rgb(190, 196, 208);
+  border: 1px rgba(182, 206, 174, 0.55) solid;
   border-radius: 5px;
   padding: 0.75em;
   width: 300px;
@@ -728,7 +728,7 @@ button, input, select, textarea, input::placeholder {
 }
 
 .card__pen:hover {
-  background: #ebebeb;
+  background: #e8d9a0;
   color: #5a5959;
 }
 
@@ -747,7 +747,7 @@ button, input, select, textarea, input::placeholder {
 .card__subtitle {
   margin-top: 0.75em;
   font-size: 0.75rem;
-  color: #838282;
+  color: #01030f;
 }
 
 .card__members {
@@ -814,7 +814,7 @@ button, input, select, textarea, input::placeholder {
 }
 
 .card--edit:hover {
-  background: white;
+  background: rgb(200, 186, 186);
 }
 
 .card__title-edit {
@@ -1270,7 +1270,7 @@ button, input, select, textarea, input::placeholder {
 }
 
 .landing-header a {
-  color: white;
+  color: rgb(209, 238, 165);
 }
 
 .landing-header__logo {
@@ -1458,7 +1458,7 @@ button, input, select, textarea, input::placeholder {
 }
 
 .board-preview {
-  background: white;
+  background: rgb(200, 206, 245);
   padding: 1em;
   border-radius: 5px;
   border: 1px rgba(211, 211, 211, 0.55) solid;
@@ -1673,7 +1673,7 @@ button, input, select, textarea, input::placeholder {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background: white;
+  background: rgb(232, 12, 12);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

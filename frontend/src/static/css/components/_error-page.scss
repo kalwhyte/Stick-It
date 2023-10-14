@@ -1,6 +1,5 @@
 .error-page {
-    position: relative; // So we can postion children absolutely
-
+    position: relative;
     &__image {
         object-fit: cover;
         width: 100vw;
@@ -18,7 +17,7 @@
     }
 
     &__title {
-        font-size: 3rem;
+        font-size: 5rem;
         font-weight: 700;
         margin-bottom: 0.5em;
     }

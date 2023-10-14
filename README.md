@@ -67,23 +67,19 @@ $ yarn start
 Project List: To test the project list endpoint, make a GET request to the base URL, which is usually something like http://127.0.0.1:8000/projects/. This will retrieve a list of projects.
 |-----------------------------------------------------------------|
     GET http://127.0.0.1:8000/projects/
-|-----------------------------------------------------------------|
+
 Project Detail: To test the project detail endpoint for a specific project, make a GET request to a URL that includes the project's primary key (pk), such as http://127.0.0.1:8000/projects/1/, replacing 1 with the actual project's ID.
 |-----------------------------------------------------------------|
     GET http://127.0.0.1:8000/projects/1/
-|-----------------------------------------------------------------|
 Project Member List: To test the project member list endpoint for a specific project, make a GET request to a URL that includes the project's primary key, followed by /members/, such as http://127.0.0.1:8000/projects/1/members/.
 |-----------------------------------------------------------------|
     GET http://127.0.0.1:8000/projects/6/members/
-|-----------------------------------------------------------------|
 Project Member Detail: To test the project member detail endpoint for a specific member within a project, make a GET request to a URL that includes both the project's primary key and the member's primary key, such as http://127.0.0.1:8000/projects/1/members/2/, replacing 1 and 2 with the actual project and member IDs.
 |-----------------------------------------------------------------|
     GET http://127.0.0.1:8000/projects/6/members/7/
 
-|-----------------------------------------------------------------|
 
 Send Project Invite: To test sending a project invite, you would typically use a POST request to the project invite URL, such as http://127.0.0.1:8000/projects/1/invite/, replacing 1 with the actual project's ID. You'll need to provide the necessary data in the request body.
 |-----------------------------------------------------------------|
 
-|-----------------------------------------------------------------|
 Accept Project Invite: To test accepting a project invite, you would typically use a GET or POST request to the project invite URL with the token parameter, such as http://127.0.0.1:8000/projects/join/your-token/, replacing your-token with the actual token received when being invited to the project.

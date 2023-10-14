@@ -112,7 +112,7 @@ const EditCardModal = ({ card, list, setShowModal }) => {
                         </div>
                         <div>
                             <a className="btn btn--secondary btn--small">
-                                <i className="fal fa-plus"></i> Add
+                                <i className="fal fa-cross"></i> Add
                             </a>
                         </div>
                     </div>

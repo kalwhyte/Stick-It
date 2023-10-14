@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: space-between;
     color: $secondary-text;
-    background: white;
+    background: rgb(134, 56, 186);
 
     &__section {
         &:nth-of-type(1) {
@@ -44,7 +44,7 @@
             align-items: center;
             padding: 0.7em 0.7em; // As we highlight this when active, looks awkard if the whole height of header
             border-radius: 5px;
-            background-color: white;
+            background-color: rgb(186, 161, 199);
             transition: width 100ms ease;
 
             > .far {
