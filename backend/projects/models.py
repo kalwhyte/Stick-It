@@ -23,8 +23,8 @@ class Project(models.Model):
 
 class ProjectMembership(models.Model):
     class Access(models.IntegerChoices):
-        MEMBER = 1 
-        ADMIN = 2 
+        MEMBER = 1
+        ADMIN = 2
 
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE)

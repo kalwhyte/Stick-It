@@ -27,15 +27,6 @@ class Board(models.Model):
     def __str__(self):
         return self.title
 
-
-
-
-    """
-    <actor> commented <comment> on <item>, you were assigned to this item
-    <actor> assigned you to <item>
-    <actor> invited you to <project>
-    <actor> made you admin of <project>
-    """
 class List(models.Model):
     board = models.ForeignKey(
         Board, on_delete=models.CASCADE, related_name="lists")
@@ -114,7 +105,6 @@ class Attachment(models.Model):
     upload = models.FileField(upload_to='attachments')
 
 
-# https://help.trello.com/article/793-receiving-trello-notifications
 extra_word_dict = {'commented': 'on'}
 
 
