@@ -181,14 +181,14 @@ const Project = (props) => {
                 {curTab == 2 && (
                     <div className="team__members">
                         <div className="team__members-header">
-                            <p>Team Members ({project.members.length})</p>
+                            <p>WorkSpace ({project.members.length})</p>
                             {authUserAccessLevel === 2 && (
                                 <button
                                     className="btn btn--medium"
                                     onClick={() => setIsInviting(true)}
                                 >
                                     <i className="fal fa-user-plus"></i> Invite
-                                    Team Members
+                                    To Team
                                 </button>
                             )}
                         </div>
@@ -207,6 +207,72 @@ const Project = (props) => {
                         </ul>
                     </div>
                 )}
+                {curTab == 3 && (
+                    <div className="team__settings">
+                        <div className="team__settings-section">
+                            <button className="btn btn--secondary btn--medium">
+                                Change Visibility
+                            </button>
+                        </div>
+                        <div className="team__settings-section">
+                            <button className="btn btn--secondary btn--medium">
+                            Change Team
+                            </button>
+                        </div>
+                        {authUserAccessLevel === 2 && (
+                            <div className="team__settings-section">
+                                <div>
+                                    <button className="btn btn--secondary btn--medium" onClick={() =>{
+                                        if (window.confirm("Are you sure you want to delete this team?")) {
+                                            try {
+                                                // Send a PUT request to backend to update project
+                                                const { data: resData } = authAxios.delete(
+                                                    `${backendUrl}/projects/${project.id}/`
+                                                );
+                                                setProject(resData);
+                                                setIsEditing(false);
+                                            } catch (error) {
+                                                console.log(error);
+                                            }
+                                        }
+                                    }}>
+                                        Delete Team
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn--secondary btn--medium" onClick={() => {
+                                        if (window.confirm("Are you sure you want to leave this team?")) {
+                                            try {
+                                                // Send a PUT request to backend to update project
+                                                const { data: resData } = authAxios.delete(
+                                                    `${backendUrl}/projects/members/${authUser.id}/`
+                                                );
+                                                setProject(resData);
+                                                setIsEditing(false);
+                                            } catch (error) {
+                                                console.log(error);
+                                            }
+                                        }
+                                    }}>
+                                        Leave Team
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn--secondary btn--medium" onClick={() => {
+                                        // call addBoard function
+                                        addBoard({
+                                            title: "New Board",
+                                            project: project.id,
+                                        });
+                                    }}>
+                                        New Board
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )}
+                
             </div>
             {authUserAccessLevel === 2 && isInviting && (
                 <InviteMembersModal

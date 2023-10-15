@@ -1,8 +1,10 @@
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+#from projects.models import Project
 from django.db.models import Max
 from django.utils import timezone
+from projects import models as projects
 from users.models import User
 
 
@@ -16,6 +18,10 @@ class Board(models.Model):
 
     title = models.CharField(max_length=255, blank=False, null=False)
     description = models.TextField(blank=True, null=False)
+
+    # Establish a link between a board and a project
+    project = models.ForeignKey(
+        'projects.Project', on_delete=models.CASCADE, related_name='project_boards', blank=True, null=True)
 
     # Only one of the below will be used from the frontend
     image = models.ImageField(blank=True, upload_to='board_images')
