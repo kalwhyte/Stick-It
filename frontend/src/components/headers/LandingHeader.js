@@ -14,17 +14,17 @@ const LandingHeader = () => {
 				<ul className="landing-header__list">
 					<li className="landing-header__li">
 						<a>
-							Tour
+							Doing
 						</a>
 					</li>
 					<li className="landing-header__li">
 						<a>
-							Pricing
+							Enterprise
 						</a>
 					</li>
 					<li className="landing-header__li">
 						<a>
-							Learn
+							Practices
 						</a>
 					</li>
 				</ul>

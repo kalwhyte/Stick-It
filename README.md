@@ -1,5 +1,6 @@
-# trello-clone
-A Trello clone made using Django Rest Framework, SASS, React, and Redis.
+# Stick-It 
+**[trello-clone]**
+Stick-It is a trello clone with some abstract features such as drag and drop, image background, made using Django Rest Framework, SASS, React, and Redis.
 
 ## Features
 - Register and Login
@@ -35,8 +36,8 @@ A Trello clone made using Django Rest Framework, SASS, React, and Redis.
 1. Install [Python](https://www.python.org/downloads/), [Yarn](https://classic.yarnpkg.com/en/docs/install/), [Redis](https://redis.io/download).
 2. Clone the repo
 ```
-$ git clone https://github.com/vdevired/trello-clone.git
-$ cd trello-clone
+$ git clone https://github.com/kalwhyte/Stick-It.git
+$ cd Stick-It
 ```
 3. Install [pipenv](https://pypi.org/project/pipenv/), a python virtual environment manager. Install backend dependencies and run migrations to create database. Default database is SQLite.
 ```
