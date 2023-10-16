@@ -28,7 +28,8 @@ const getBackgroundModalPosition = (boardElem) => {
 const AddBoardModal = ({ setShowAddBoardModal, addBoard, project }) => {
     const [selectedBackground, setSelectedBackground] = useState(0);
     const [extraBackground, setExtraBackground] = useState(null); // Did we choose something from the BoardBackground modal?
-    const [title, setTitle] = useState("");
+    //const [title, setTitle] = useState("");
+    const [BoardTitle, setBoardTitle] = useState("");
     const [showBoardModal, setShowBoardModal] = useState(false);
     const boardElem = useRef(null);
     useEffect(modalBlurHandler(setShowAddBoardModal), []);
@@ -37,7 +38,7 @@ const AddBoardModal = ({ setShowAddBoardModal, addBoard, project }) => {
         e.preventDefault();
 
         const bg = options[selectedBackground];
-        const formData = { title };
+        const formData = { BoardTitle };
         if (project !== 0) formData.project = project;
         if (bg[1]) {
             // Image_url
@@ -85,9 +86,10 @@ const AddBoardModal = ({ setShowAddBoardModal, addBoard, project }) => {
                         style={getAddBoardStyle(...options[selectedBackground])}
                     >
                         <input
-                            value={title}
+                            value={BoardTitle}
                             onChange={(e) => {
-                                setTitle(e.target.value);
+                                //setTitle(e.target.value);
+                                setBoardTitle(e.target.value);
                             }}
                             className="addboard-modal__title"
                             placeholder="Add board title"
@@ -99,7 +101,7 @@ const AddBoardModal = ({ setShowAddBoardModal, addBoard, project }) => {
                             <i className="fal fa-times"></i>
                         </button>
                     </div>
-                    {title.trim() === "" ? (
+                    {BoardTitle.trim() === "" ? (
                         <button
                             className="addboard-modal__create btn btn--disabled"
                             disabled
