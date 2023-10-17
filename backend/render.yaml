@@ -3,6 +3,6 @@ buildCommand: |
   
   pipenv install
   pipenv shell
-  python manage.py migrate
-  python manage.py runserver 0.0.0.0:$8080
-startCommand: pipenv run python manage.py runserver 0.0.0.0:$8080
+  python3 manage.py migrate
+  python3 manage.py runserver 0.0.0.0:$8080
+startCommand: python3 manage.py runserver 0.0.0.0:$8080
