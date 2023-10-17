@@ -15,6 +15,7 @@ import useBlurSetState from "../../hooks/useBlurSetState";
 import { handleBackgroundBrightness } from "../../static/js/util";
 import globalContext from "../../context/globalContext";
 import NotificationsModal from "../modals/NotificationsModal";
+import "./menu.css";
 
 const Header = (props) => {
     const { authUser, board } = useContext(globalContext);
@@ -23,7 +24,7 @@ const Header = (props) => {
     const [backendQuery, setBackendQuery] = useState(""); //This variable is used to query the backend, debounced
     const delayedQuery = useCallback(
         _.debounce((q) => setBackendQuery(q), 500),
-        []
+        [],
     );
     const [showSearch, setShowSearch] = useState(false);
     const searchElem = useRef(null);
@@ -35,13 +36,18 @@ const Header = (props) => {
         else if (searchQuery === "" && showSearch) setShowSearch(false);
     }, [searchQuery]);
 
-    const { data: notifications, setData: setNotifications } = useAxiosGet(
-        "/notifications/"
-    );
+    const { data: notifications, setData: setNotifications } =
+        useAxiosGet("/notifications/");
 
     const onBoardPage = props.location.pathname.split("/")[1] === "b";
     const [isBackgroundDark, setIsBackgroundDark] = useState(false);
     useEffect(handleBackgroundBrightness(board, setIsBackgroundDark), [board]);
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+    useBlurSetState(".menu", isMenuOpen, setIsMenuOpen);
 
     return (
         <>
@@ -50,8 +56,7 @@ const Header = (props) => {
                     isBackgroundDark && onBoardPage
                         ? " header--transparent"
                         : ""
-                }`}
-            >
+                }`}>
                 <div className="header__section">
                     <ul className="header__list">
                         <li className="header__li">
@@ -63,8 +68,7 @@ const Header = (props) => {
                             className={`header__li header__li--search${
                                 searchQuery !== "" ? " header__li--active" : ""
                             }`}
-                            ref={searchElem}
-                        >
+                            ref={searchElem}>
                             <i className="far fa-search"></i>{" "}
                             <input
                                 type="text"
@@ -93,14 +97,30 @@ const Header = (props) => {
                                 <i className="fal fa-bell"></i>
                             </button>
                             {(notifications || []).find(
-                                (notification) => notification.unread == true
+                                (notification) => notification.unread == true,
                             ) && <div className="header__unread"></div>}
                         </li>
                         <li className="header__li header__li--border">
-                            <a>
+                            <a onClick={toggleMenu}>
                                 <i className="fal fa-bars"></i>
                             </a>
                         </li>
+                        {isMenuOpen && (
+                            <div className="header__menu">
+                                <ul>
+                                    <li>
+                                        <a>Profile</a>
+                                    </li>
+                                    <li>
+                                        <a>Settings</a>
+                                    </li>
+                                    {/*TODO: call the backend endpoint to invalidate the tokens*/}
+                                    <li>
+                                        <a>Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
                     </ul>
                 </div>
                 <div className="out-of-focus"></div>
