@@ -211,11 +211,6 @@ const Project = (props) => {
                     <div className="team__settings">
                         <div className="team__settings-section">
                             <button className="btn btn--secondary btn--medium">
-                                Change Visibility
-                            </button>
-                        </div>
-                        <div className="team__settings-section">
-                            <button className="btn btn--secondary btn--medium">
                             Change Team
                             </button>
                         </div>

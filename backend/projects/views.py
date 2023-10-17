@@ -11,6 +11,7 @@ from django.shortcuts import get_object_or_404
 from projects.models import Project, ProjectMembership
 from projects.permissions import IsProjectAdminOrMemberReadOnly
 from projects.serializers import ProjectMembershipSerializer, ProjectSerializer, ShortProjectSerializer
+from boards.serializers import ShortBoardSerializer
 from rest_framework import generics, mixins, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -122,6 +123,18 @@ class ProjectMemberDetail(APIView):
         pmem = self.get_object(pk)
         pmem.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+""" View to display boards in a project """
+class ProjectBoardList(APIView):
+    def get(self, request, pk):
+        project = get_object_or_404(Project, pk=pk)   
+        # Check if user is a member of the project
+        self.check_object_permissions(self.request, project) 
+        # Get all boards in the project
+        boards = project.boards.all()
+        # Serialize the boards
+        serializer = ShortBoardSerializer(boards, many=True)
+        return Response(serializer.data)
 
 
 site_url = "http://localhost:8000/"
