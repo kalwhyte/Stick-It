@@ -3,6 +3,13 @@ import  { backendUrl } from './const'
 
 // All board state manipulating functions in this file
 // So other files don't get bloated
+
+/**
+ * onDragEnd function for react-beautiful-dnd
+ * @param {*} board 
+ * @param {*} setBoard 
+ * @returns 
+ */
 export const onDragEnd = (board, setBoard) => (result) => {
     // Must update state synchromously so hit endpoint after setState
     // A bit optimistic but a must
