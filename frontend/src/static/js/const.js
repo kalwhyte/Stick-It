@@ -1,4 +1,12 @@
-export const backendUrl = "http://localhost:8000";
+let backendUrl;
+
+if (process.env.NODE_ENV === "development") {
+    backendUrl = "http://localhost:8000";
+} else {
+    backendUrl = "https://stick-it-1rv5.onrender.com";
+}
+
+export { backendUrl };
 
 export const colors = [
     ["#0079bf", false],
