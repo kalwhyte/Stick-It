@@ -173,6 +173,16 @@ SWAGGER_SETTINGS = {
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'https://stick-it-ashy.vercel.app/']
 CORS_ALLOW_ALL_ORIGINS = True
 
-REDIS_HOST = 'localhost'
-REDIS_PORT = 6380
-REDIS_DB = 0
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://red-ckofj6vkc2qc73a1v48g:6379',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
+#REDIS_HOST = 'localhost'
+#REDIS_PORT = 6380
+#REDIS_DB = 0
