@@ -5,7 +5,7 @@ import React, {
     useContext,
     useCallback,
 } from "react";
-import _ from "lodash";
+import _, { isDate } from "lodash";
 import logo from "../../static/img/logo2.png";
 import SearchModal from "../modals/SearchModal";
 import ProfilePic from "../boards/ProfilePic";
@@ -15,7 +15,6 @@ import useBlurSetState from "../../hooks/useBlurSetState";
 import { handleBackgroundBrightness } from "../../static/js/util";
 import globalContext from "../../context/globalContext";
 import NotificationsModal from "../modals/NotificationsModal";
-import "./menu.css";
 import DropdownMenu from "../modals/DropdownMenu";
 
 const Header = (props) => {
@@ -23,6 +22,7 @@ const Header = (props) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+    useBlurSetState(".dropdown-menu", isDropdownOpen, setIsDropdownOpen);
 
     const [searchQuery, setSearchQuery] = useState(""); //This variable keeps track of what to show in the search bar
     const [backendQuery, setBackendQuery] = useState(""); //This variable is used to query the backend, debounced
@@ -46,12 +46,6 @@ const Header = (props) => {
     const onBoardPage = props.location.pathname.split("/")[1] === "b";
     const [isBackgroundDark, setIsBackgroundDark] = useState(false);
     useEffect(handleBackgroundBrightness(board, setIsBackgroundDark), [board]);
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-    useBlurSetState(".menu", isMenuOpen, setIsMenuOpen);
 
     return (
         <>
@@ -104,30 +98,21 @@ const Header = (props) => {
                                 (notification) => notification.unread == true,
                             ) && <div className="header__unread"></div>}
                         </li>
-                        <li className="header__li header__li--border">
-                            <a onClick={toggleMenu}>
                         <li className="header__li">
                             <button onClick={toggleDropdown}>
-                                <i className="fal fa-bars"></i>
+                                {isDropdownOpen ? (
+                                    // render a cancel icon
+                                    <i className="fal fa-times"></i>
+                                ) : (
+                                    // render a menu bar
+                                    <i className="fal fa-bars"></i>
+                                )}
                             </button>
-                            <DropdownMenu isOpen={isDropdownOpen} toggle={toggleDropdown} />
+                            <DropdownMenu
+                                isOpen={isDropdownOpen}
+                                toggle={toggleDropdown}
+                            />
                         </li>
-                        {isMenuOpen && (
-                            <div className="header__menu">
-                                <ul>
-                                    <li>
-                                        <a>Profile</a>
-                                    </li>
-                                    <li>
-                                        <a>Settings</a>
-                                    </li>
-                                    {/*TODO: call the backend endpoint to invalidate the tokens*/}
-                                    <li>
-                                        <a>Logout</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        )}
                     </ul>
                 </div>
                 <div className="out-of-focus"></div>
