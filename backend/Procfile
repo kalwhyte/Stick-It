@@ -1,1 +1,1 @@
-web: gunicorn your_application.wsgi
+web: gunicorn trello.wsgi:application
