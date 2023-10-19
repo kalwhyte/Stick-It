@@ -5,7 +5,7 @@ import React, {
     useContext,
     useCallback,
 } from "react";
-import _ from "lodash";
+import _, { isDate } from "lodash";
 import logo from "../../static/img/logo2.png";
 import SearchModal from "../modals/SearchModal";
 import ProfilePic from "../boards/ProfilePic";
@@ -22,6 +22,7 @@ const Header = (props) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+    useBlurSetState(".dropdown-menu", isDropdownOpen, setIsDropdownOpen);
 
     const [searchQuery, setSearchQuery] = useState(""); //This variable keeps track of what to show in the search bar
     const [backendQuery, setBackendQuery] = useState(""); //This variable is used to query the backend, debounced
@@ -102,9 +103,18 @@ const Header = (props) => {
                         </li>
                         <li className="header__li">
                             <button onClick={toggleDropdown}>
-                                <i className="fal fa-bars"></i>
+                                {isDropdownOpen ? (
+                                    // render a cancel icon
+                                    <i className="fal fa-times"></i>
+                                ) : (
+                                    // render a menu bar
+                                    <i className="fal fa-bars"></i>
+                                )}
                             </button>
-                            <DropdownMenu isOpen={isDropdownOpen} toggle={toggleDropdown} />
+                            <DropdownMenu
+                                isOpen={isDropdownOpen}
+                                toggle={toggleDropdown}
+                            />
                         </li>
                     </ul>
                 </div>
