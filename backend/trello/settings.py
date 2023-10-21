@@ -29,7 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'stick-it-1rv5.onrender.com',
-    'https://stick-it-ashy.vercel.app/'
+    'https://stick-it-ashy.vercel.app/',
+    'localhost',
+    '127.0.0.1',
 ]
 
 
