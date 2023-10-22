@@ -172,11 +172,29 @@ SWAGGER_SETTINGS = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'https://stick-it-ashy.vercel.app/']
+
+CORS_ALLOWED_ORIGINS = []
+
+if os.environ.get('ENVIRONMENT') == 'production':
+    CORS_ALLOWED_ORIGINS.append('https://localhost:3000')
+else:
+    CORS_ALLOWED_ORIGINS.append('http://stick-it-1rv5.onrender.com')
+
 CORS_ALLOW_ALL_ORIGINS = True
 
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6380
+REDIS_DB = 0
 
-CACHES = {
+if os.environ.get('ENVIRONMENT') == 'production':
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+            'LOCATION': 'cache_table',
+        }
+    }    
+else:
+    CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': 'redis://red-ckofj6vkc2qc73a1v48g:6379',
@@ -185,7 +203,3 @@ CACHES = {
         }
     }
 }
-
-#REDIS_HOST = 'localhost'
-#REDIS_PORT = 6380
-#REDIS_DB = 0
