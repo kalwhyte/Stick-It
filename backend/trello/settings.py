@@ -175,6 +175,7 @@ SWAGGER_SETTINGS = {
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'https://stick-it-ashy.vercel.app/']
 CORS_ALLOW_ALL_ORIGINS = True
 
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
