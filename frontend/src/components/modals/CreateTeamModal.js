@@ -1,10 +1,3 @@
-// import React, { useEffect } from "react";
-// import board from "../../static/img/board.svg";
-// import greenface from "../../static/img/greenface.svg";
-// import { modalBlurHandler, authAxios } from "../../static/js/util";
-// import { backendUrl } from "../../static/js/const";
-
-// import { useForm } from "react-hook-form";
 
 // const CreateTeamModal = ({ setShowModal, addProject }) => {
 //     useEffect(modalBlurHandler(setShowModal), []);
