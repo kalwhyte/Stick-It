@@ -6,25 +6,33 @@ const DraggableCard = ({ card, list, index }) => {
     return (
         <Draggable draggableId={card.id.toString()} index={index}>
             {(provided, snapshot) => {
-                if (
-                    typeof provided.draggableProps.onTransitionEnd ===
-                    "function"
-                ) {
-                    const anim = window?.requestAnimationFrame(() =>
-                        provided.draggableProps.onTransitionEnd({
-                            propertyName: "transform",
-                        })
-                    );
-                }
-                return (
-                    <Card
-                        card={card}
-                        list={list}
-                        provided={provided}
-                        isDragging={snapshot.isDragging}
-                    />
-                );
-            }}
+            //     if (
+            //         typeof provided.draggableProps.onTransitionEnd ===
+            //         "function"
+            //     ) {
+            //         const anim = window?.requestAnimationFrame(() =>
+            //             provided.draggableProps.onTransitionEnd({
+            //                 propertyName: "transform",
+            //             })
+            //         );
+            //     }
+            //     return (
+            //         <Card
+            //             card={card}
+            //             list={list}
+            //             provided={provided}
+            //             isDragging={snapshot.isDragging}
+            //         />
+            //     );
+            // }}
+                <Card
+                    card={card}
+                    list={list}
+                    provided={provided}
+                    isDragging={snapshot.isDragging}
+                />
+            }
+        }
         </Draggable>
     );
 };
